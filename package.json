@@ -1,0 +1,21 @@
+{
+  "name": "ftd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ftd.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ftd.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://alviham1@mcsscm.utm.utoronto.ca:9999/git/309/19s/repo_a2_Fortnite.git"
+  },
+  "author": "Hamza Alvi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "sqlite3": "^4.0.6"
+  }
+}
