@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
+		<link rel="stylesheet" type="text/css" href="./styles/style.css">
+		<script src="jquery-3.3.1.min.js"></script>
+		<script src="client.js"></script>
+		<script language="javascript" src="./scripts/model.js"></script>
+
+		<script language="javascript" src="./scripts/pair.js"></script>
+		<script language="javascript" src="./scripts/actor.js"></script>
+
+		<script language="javascript" src="./scripts/player.js"></script>
+		<script language="javascript" src="./scripts/obstacles.js"></script>
+
+		<script language="javascript" src="./scripts/weapons.js"></script>
+		<script language="javascript" src="./scripts/items.js"></script>
+		<script language="javascript" src="./scripts/monster.js"></script>
+		<script language="javascript" src="./scripts/cat.js"></script>
+
+	  <script language="javascript" src="./scripts/controller.js"></script>
+		<style>
+			#ui_login {
+				display: true;
+			}
+			#ui_registration {
+				display: true;
+			}
+			#ui_memberManagement {
+				display: false;
+			}
+			#ui_game {
+				display: false;
+			}
+		</style>
+		<title>Fortnite</title>
+	</head>
+
+	<body bgcolor=ffffff>
+		<div id="ui_login">
+			<div class="logreg-form">
+				<h1>Login</h1>
+				<!-- https://www.tjvantoll.com/2013/01/01/enter-should-submit-forms-stop-messing-with-that/ -->
+				<input type="text" id=username name="user" placeholder="User Name" />
+				<input type="password" id=pwd name="password" placeholder="Password" />
+				<input type="submit" id="loginSubmit" value="Login">
+			</div>
+			<center>
+					<div id="loginErrors" style="color:red; font-size:20;"></div>
+			</center>
+
+
+		</div>
+		<div id="ui_registration">
+			<div class="logreg-form">
+					<h1>Register</h1>
+				<!-- https://www.tjvantoll.com/2013/01/01/enter-should-submit-forms-stop-messing-with-that/ -->
+				<input type="text" id=createUsername name="user" placeholder="User Name" />
+				<input type="password" id=createPwd name="password" placeholder="Password" />
+				<input type="submit"  onclick="document.getElementById('ui_registration').style.display = 'none'; document.getElementById('ui_login').style.display = '';" id="RegistrationSubmit" value="Register">
+			</div>
+		</div>
+
+		<div id="ui_memberManagement">
+			<div class="logreg-form">
+				<h1>Member Management</h1>
+				<!-- https://www.tjvantoll.com/2013/01/01/enter-should-submit-forms-stop-messing-with-that/ -->
+				<input type="text" id=updateUsername name="user" placeholder="User Name" readonly/>
+				<input type="text" id=updatePwd name="score" placeholder="Score" readonly/>
+				<input type="submit" id=updateSubmit value="Update">
+				<br>
+				<br>
+				<input type="submit"  onclick="document.getElementById('ui_memberManagement').style.display = 'none'; document.getElementById('ui_game').style.display = ''; startGame();" value="Play">
+			</div>
+		</div>
+
+
+		<div id="ui_game">
+			<div id="stage">
+				<canvas id="game-layer" width="1500px" height="820" style="cursor: none;"></canvas>
+				<canvas id="background-layer" width="1500px" height="820" style="cursor: none;"></canvas>
+				<canvas id="mini" width="250" height="150" style="cursor: none;"></canvas>
+			</div>
+				<div id="Settings" class="info">
+					<div class="content">
+						<span class="close" >x</span>
+						<p id="cntrd">FORTNITE GAME</p>
+						<p>Movement: W,A,S,D <br> Turn: Mouse <br> Pick up items: E <br> Quick heal: Click on red cross in inventory
+								<br> Shield 10s: Click on shield in inventory <br> Build wall: Select wall in inventory and click desired place on the map
+                <br> Drop weapon: Click on the drop weapon icon in inventory <br> Stay inside the circle, otherwise player looses health
+                <br> Destroy monsters to get bonus items (e.g. shield) <br> Destroy trees to get building blocks for walls
+                <br> Avoid water - player becomes slow in water <br> Step on the portal to teleport to the center
+								<br> Click on user image to view your profile
+						</p>
+					</div>
+				</div>
+        <div id="info-div">
+				<img id="info" onclick="displayInfo();" src="icons/info.svg" alt="Info bar" height="40">
+        <span class="desc">Information </span>
+        </div>
+        <div id="health-div">
+				<img id="healthbar" src="icons/health-10.png" alt="Health bar" height="40"> <br>
+        <span class="desc"> Health </span>
+        </div>
+				<div id="p-c">
+						<img id="purple-c" src="icons/purple.png" alt="Purple bar" height="40">
+						<p id="purplecount"></p>
+            <span class="desc"> Purple monster </span>
+				</div>
+				<div id="z-c">
+						<img id="zombie-c" src="icons/zombie.png" alt="Zombie bar" height="40">
+						<p id="zombiecount"></p>
+            <span class="desc"> Zombie </span>
+				</div>
+				<div id="one-c">
+						<img id="weaponone-c" src="icons/weaponone-bullet.png" alt="Weapon One bar" height="40">
+						<p id="wonecount">5</p>
+            <span class="desc"> Weapon 1 </span>
+				</div>
+				<div id="two-c">
+						<img id="weapontwo-c" src="icons/weapontwo-bullet.png" alt="Weapon Two bar" height="40">
+						<p id="wtwocount">10</p>
+            <span class="desc"> Weapon 2 </span>
+				</div>
+				<div id="wall-c">
+						<img id="walls-c" onclick="wallClicked();" src="icons/wall.svg" alt="Wall bar" height="40">
+						<p id="wallcount">5</p>
+            <span class="desc"> Walls </span>
+				</div>
+				<div id="health-c">
+						<img id="healths-c" onclick="healthClicked();" src="icons/health.svg" alt="Health Plus bar" height="40">
+						<p id="healthcount">0</p>
+            <span class="desc"> Health </span>
+				</div>
+				<div id="shield-c">
+						<img id="shields-c" onclick="shieldClicked(); setTimeout(shieldOff, 10000);" src="icons/shield.svg" alt="Shield bar" height="40">
+						<p id="shieldcount">0</p>
+            <span class="desc"> Shields </span>
+				</div>
+        <div id="mini-c">
+						<img id="minis-c" src="icons/mini.png" alt="Mini zombie bar" height="40">
+						<p id="minicount"></p>
+            <span class="desc"> Mini zombie </span>
+				</div>
+        <div id="gold-c">
+            <img id="golds-c" src="icons/coins.png" alt="Coins bar" height="40">
+            <p id="goldcount"></p>
+            <span class="desc"> Coins </span>
+        </div>
+        <div id="nogun-c">
+						<img id="noguns-c" onclick="noGun();" src="icons/nogun.png" alt="No gun bar" height="40">
+            <span class="desc"> Drop a gun </span>
+				</div>
+        <div id="pet-c">
+						<img id="pets-c" onclick="buyPet();" src="icons/pet-5.png" alt="No gun bar" height="40">
+            <span class="desc"> Buy a pet </span>
+				</div>
+				<div id="score-c">
+						<img id="scores-c" onclick="" src="icons/score.png" alt="Score bar" height="40">
+            <p id="scorecount"></p>
+            <span class="desc"> Score </span>
+				</div>
+        <div id="profile">
+						<img id="showProfile" src="icons/player-regular.png" alt="Profile bar" height="40">
+            <span class="desc"> Profile </span>
+				</div>
+		</div>
+   </body>
+</html>

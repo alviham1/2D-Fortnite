@@ -1,0 +1,378 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  float: left;
+  width: 50%; /* three boxes (use 25% for four, and 50% for two, etc) */
+  padding: 50px; /* if you want space between the images */
+}
+
+th p{
+  float: left;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+th img{
+  float: right;
+}
+
+h1{
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-transform: uppercase;
+}
+
+body{
+  background: #347B57;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+th {
+  width: 50%;
+}
+
+
+#health-div{
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  z-index: 2;
+}
+
+#health-div:hover .desc {
+  visibility: visible;
+}
+
+#info-div{
+  position: absolute;
+  left: 1%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  z-index: 2;
+}
+
+#info-div:hover .desc {
+  visibility: visible;
+}
+
+#pet-c {
+  position: absolute;
+  left: 0.7%;
+  top: 15%;
+  filter: drop-shadow(8px 8px 8px #222);
+  z-index: 2;
+}
+
+#pet-c:hover .desc {
+  visibility: visible;
+}
+
+
+#score-c{
+  position: absolute;
+  text-align: center;
+  left: 1%;
+  top: 25%;
+  filter: drop-shadow(8px 8px 8px #222);
+  z-index: 2;
+}
+
+#profile{
+  position: absolute;
+  text-align: center;
+  left: 1%;
+  top: 35%;
+  filter: drop-shadow(8px 8px 8px #222);
+  z-index: 2;
+}
+
+.desc {
+  visibility: hidden;
+  width: 80px;
+  background-color: #3f5527;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 4;
+  font-size: 12px;
+}
+
+#profile:hover .desc {
+  visibility: visible;
+}
+
+#score-c:hover .desc {
+  visibility: visible;
+}
+
+.info {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+#cntrd{
+  text-align: center; font-size: 30px;
+}
+
+.content p {
+  color: #cecccc;
+  line-height: 27px;
+}
+
+.content {
+  background-color: rgba(40,40,40,0.4);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #cecccc;
+  float: right;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+#z-c{
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  left: 91%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  color:#fff;
+  z-index: 2;
+}
+
+#z-c:hover .desc {
+  visibility: visible;
+}
+
+#p-c{
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  left: 95%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  color:#fff;
+  z-index: 2;
+}
+
+#p-c:hover .desc {
+  visibility: visible;
+}
+
+#one-c{
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  left: 83%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  color:#fff;
+  z-index: 2;
+
+}
+
+#one-c:hover .desc {
+  visibility: visible;
+}
+
+#two-c{
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  left: 87%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  color:#fff;
+  z-index: 2;
+}
+
+#two-c:hover .desc {
+  visibility: visible;
+}
+
+#wall-c{
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  left: 79%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  color:#fff;
+  z-index: 2;
+}
+
+#wall-c:hover .desc {
+  visibility: visible;
+}
+
+#health-c{
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  left: 75%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  color:#fff;
+  z-index: 2;
+}
+
+#health-c:hover .desc {
+  visibility: visible;
+}
+
+#stage{
+  width: 1500px;
+  height: 820px;
+}
+
+#shield-c{
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+  left: 71%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  color:#fff;
+  z-index: 2;
+}
+
+#shield-c:hover .desc {
+  visibility: visible;
+}
+
+
+
+#mini-c{
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+  left: 67%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  color:#fff;
+  z-index: 2;
+}
+
+#mini-c:hover .desc {
+  visibility: visible;
+}
+
+#gold-c{
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+  left: 63%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  color:#fff;
+  z-index: 2;
+}
+
+#gold-c:hover .desc {
+  visibility: visible;
+}
+
+#nogun-c{
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+  left: 59%;
+  top: 5%;
+  filter: drop-shadow(8px 8px 8px #222);
+  color:#fff;
+  z-index: 2;
+}
+
+#nogun-c:hover .desc {
+  visibility: visible;
+}
+
+
+.logreg-form {
+  width: 500px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  background: #EDEDED;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 50px;
+}
+
+.logreg-form  h1 {
+  text-align: center;
+  color: #333333;
+  font-size: 24px;
+  padding: 20px 0 20px 0;
+}
+.logreg-form  input[type="password"],
+.logreg-form  input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid ##237A57;
+  margin-bottom: 15px;
+  box-sizing:border-box;
+  border-radius: 50px;
+}
+.logreg-form input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background-color: #237A57;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+  border-radius: 50px;
+}
+.logreg-form input[type="submit"]:hover{
+  background-color: #113D2B;
+}
+
+
+
+#login {
+  display: true;
+}
+#registration {
+  display: false;
+}
+#memberManagement {
+  display: false;
+}
+#stage {
+   border: 2px solid black;
+   display: false;
+}
+canvas { position: absolute;}
+  #game-layer { z-index: 2; }
+  #background-layer { z-index: 1; background-image: url("../icons/background.png"); background-position: 50% 50%; background-repeat: repeat; }
+  #mini {	position: absolute; z-index: 4;  left: 1250px; top: 670px;}
